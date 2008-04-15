@@ -1,0 +1,9 @@
+This is a try to port the code examples from 
+"Programming Collective Intelligence" by Toby Segaran from O'Reilly to ruby.
+
+I try not to stupidly port the stuff, but also try to use ruby idioms and best
+practices wherevever possible.
+
+= Status
+ * Chapter 2
+   * Euclidean Distance Score - finished
