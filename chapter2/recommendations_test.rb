@@ -29,5 +29,25 @@ class RecommendationsTest < Test::Unit::TestCase
       assert_in_delta expected_result[i].first, match.first, 0.00001
     end
   end
+
+  def test_top_matches_with_distance_with_other_block
+    prefs = YAML.load_file('recommendations.yml')
+    tm = top_matches(prefs, 'Toby', 3) do |prefs, person, other|
+      sim_distance(prefs, person, other)
+    end
+    assert_equal 3, tm.size
+  end
+  
+  def test_get_recommendations
+    prefs = YAML.load_file('recommendations.yml')
+    recommendations = get_recommendations(prefs, 'Toby')
+    assert_equal 3, recommendations.size
+  end 
+
+  def test_get_recommendations_with_sim_distance
+    prefs = YAML.load_file('recommendations.yml')
+    recommendations = get_recommendations(prefs, 'Toby') {|prefs, person, other| sim_distance(prefs, person, other)}
+    assert_equal 3, recommendations.size
+  end 
     
 end

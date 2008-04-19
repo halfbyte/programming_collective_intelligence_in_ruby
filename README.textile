@@ -5,13 +5,15 @@ I try not to stupidly port the stuff, but also try to use ruby idioms and best p
 h2. Changelog
 
 [19.04.2008] - Did some housekeeping. First of all, to make the code as accessible as possible, I converted the python shell stuff into unit tests. I also tried to set up a clever way to load monkey patches such as my Array.sum stuff. YMMV.
-[19.04.2008] - Implemented the ranking stuff aka top_matches
+[19.04.2008] - Implemented the ranking stuff aka top_matches and recommendations
+
 h2. Status
 
 * Chapter 2
 ** Euclidean Distance Score - finished
 ** Pearson-Coefficient - finished
 ** Ranking aka top_matches - finished
+** Recommendations - finished
 
 h2. Errata
 
