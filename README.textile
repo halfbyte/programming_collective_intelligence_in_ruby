@@ -2,6 +2,10 @@ This is my attemt to port the code examples from "Programming Collective Intelli
 
 I try not to stupidly port the stuff, but also try to use ruby idioms and best practices wherevever possible.
 
+h2. Changelog
+
+[19.04.2008] - Did some housekeeping. First of all, to make the code as accessible as possible, I converted the python shell stuff into unit tests. I also tried to set up a clever way to load monkey patches such as my Array.sum stuff. YMMV.
+
 h2. Status
 
 * Chapter 2
