@@ -6,4 +6,5 @@ practices wherevever possible.
 
 = Status
  * Chapter 2
-   * Euclidean Distance Score - finished
+ ** Euclidean Distance Score - finished
+ ** Pearson-Coefficient - finished
