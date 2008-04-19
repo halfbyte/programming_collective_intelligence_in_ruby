@@ -25,3 +25,8 @@ def sim_pearson(prefs, person1, person2)
   return 0 if den == 0
   num/den
 end
+
+def top_matches(prefs,person,n=5,similarity=:sim_pearson)
+  scores = prefs.reject{ |k,v| k == person }.map{|k,v| [send(similarity, prefs, person, k), k]}
+  scores.sort{|a,b| a.first <=> b.first }.reverse[0,n]
+end
