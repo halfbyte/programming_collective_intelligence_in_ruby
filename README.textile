@@ -1,10 +1,16 @@
-This is a try to port the code examples from 
-"Programming Collective Intelligence" by Toby Segaran from O'Reilly to ruby.
+This is my attemt to port the code examples from "Programming Collective Intelligence" by Toby Segaran from O'Reilly to ruby.
 
-I try not to stupidly port the stuff, but also try to use ruby idioms and best
-practices wherevever possible.
+I try not to stupidly port the stuff, but also try to use ruby idioms and best practices wherevever possible.
 
-= Status
- * Chapter 2
- ** Euclidean Distance Score - finished
- ** Pearson-Coefficient - finished
+h2. Status
+
+* Chapter 2
+** Euclidean Distance Score - finished
+** Pearson-Coefficient - finished
+
+h2. Errata
+
+(a short collection of errors I encountered on my way through the book - if not stated otherwise, they are also present in the official oreilly errata collection.)
+
+* Chapter 2
+** Both example code AND result from the euclidean distance score are broken. The code in the book contains syntax errors (and the given similarity score for Lisa Rose and Gene Seymour is wrong). The example code from the website misses out the final sqrt() on the sums, but delivers, tadaa, the wrong result contained in the book.
