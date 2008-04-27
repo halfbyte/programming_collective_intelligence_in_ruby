@@ -4,8 +4,9 @@ I try not to stupidly port the stuff, but also try to use ruby idioms and best p
 
 h2. Changelog
 
-[19.04.2008] - Did some housekeeping. First of all, to make the code as accessible as possible, I converted the python shell stuff into unit tests. I also tried to set up a clever way to load monkey patches such as my Array.sum stuff. YMMV.
-[19.04.2008] - Implemented the ranking stuff aka top_matches and recommendations
+* [19.04.2008] - Did some housekeeping. First of all, to make the code as accessible as possible, I converted the python shell stuff into unit tests. I also tried to set up a clever way to load monkey patches such as my Array.sum stuff. YMMV.
+* [19.04.2008] - Implemented the ranking stuff aka top_matches and recommendations
+* [27.04.2008] - Fixed another minor data error, implemented the transformation for the product finder (investigated del.icio.us API's for ruby. That IS a MESS.)
 
 h2. Status
 
@@ -13,7 +14,8 @@ h2. Status
 ** Euclidean Distance Score - finished
 ** Pearson-Coefficient - finished
 ** Ranking aka top_matches - finished
-** Recommendations - finished
+** Recommendations - finished _(recommendations with sim_distance somehow returns different values (but in correct order) - need to investigate)_
+** Finding Products (transforming) - finished
 
 h2. Errata
 

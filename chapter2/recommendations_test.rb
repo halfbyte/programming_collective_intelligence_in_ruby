@@ -37,17 +37,41 @@ class RecommendationsTest < Test::Unit::TestCase
     end
     assert_equal 3, tm.size
   end
-  
+  #german book: page 20, top
   def test_get_recommendations
     prefs = YAML.load_file('recommendations.yml')
     recommendations = get_recommendations(prefs, 'Toby')
     assert_equal 3, recommendations.size
   end 
-
+  #german book: page 20, top
+  # please note that I get different results, order seems to be correct, though.
+  # TODO: Needs investigation.
   def test_get_recommendations_with_sim_distance
     prefs = YAML.load_file('recommendations.yml')
     recommendations = get_recommendations(prefs, 'Toby') {|prefs, person, other| sim_distance(prefs, person, other)}
     assert_equal 3, recommendations.size
-  end 
-    
+  end
+  
+  # just a small test to test the transformation described on page 21, middle (german book)
+  def test_transform_preferences
+    original = {'A' => {'1' => 1.0, '2' => 2.0}, 'B' => {'1' => 1.1, '2' => 2.1}}
+    transformed = {'1' => {'A' => 1.0, 'B' => 1.1}, '2' => {'A' => 2.0, 'B' => 2.1}}
+    assert_equal transformed, transform_preferences(original)
+  end
+  # german book: page 21, middle
+  def test_top_matches_transformed
+    prefs = YAML.load_file('recommendations.yml')
+    matching = top_matches(transform_preferences(prefs), 'Superman Returns')
+    expected_movies = ['You, me and Dupree', 'Lady in the Water', 'Snakes on a Plane', 'The Night Listener', 'Just my Luck']
+    assert_equal expected_movies, matching.map{ |movie| movie.last }    
+  end
+  
+  # german book: page 21, bottom
+  def test_recommendations_transformed
+    prefs = YAML.load_file('recommendations.yml')
+    recommended = get_recommendations(transform_preferences(prefs), 'Just my Luck')
+    expected_critics = ['Michael Phillips', 'Jack Matthews']
+    assert_equal expected_critics, recommended.map{ |critic| critic.last }
+  end
+  
 end

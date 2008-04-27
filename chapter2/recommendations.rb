@@ -67,3 +67,14 @@ def get_recommendations(prefs,person, &block)
   end
   rankings.sort{|a,b| b.first <=> a.first}  
 end
+
+def transform_preferences(prefs)
+  result = {}
+  prefs.each do |person, person_prefs|
+    person_prefs.each do |thing, rating|
+      result[thing] ||= {}
+      result[thing][person] = rating
+    end
+  end
+  result
+end
